@@ -1,0 +1,33 @@
+@startuml
+title Dynamic Form Builder – End-to-End Flow
+
+actor User
+participant Frontend as FE
+participant "Backend API" as API
+database "DB (JSON/File/SQLite)" as DB
+
+== Step 1: Fetch Form Schema ==
+User -> FE: Open Form Page
+FE -> API: GET /api/form-schema
+API --> FE: 200 OK (JSON Form Schema)
+FE -> FE: Render dynamic form\n(TanStack Query + TanStack Form)
+
+== Step 2: User Submits Form ==
+User -> FE: Fill form + click Submit
+FE -> FE: Disable submit button\nShow loading indicator
+FE -> API: POST /api/submissions (form data)
+API -> API: Validate against schema\n(minLength, maxLength, regex,\nmin/max, minDate, selections)
+API -> DB: Store submission\n(id, createdAt, data)
+DB --> API: OK
+API --> FE: 201 Created (id, createdAt)
+FE -> FE: Show success message\nClear form\nNavigate to submissions page
+
+== Step 3: Fetch Submissions Table ==
+User -> FE: Open Submissions Page
+FE -> API: GET /api/submissions?page=1&limit=10&sortBy=createdAt&sortOrder=desc
+API -> DB: Query paginated + sorted results
+DB --> API: JSON results
+API --> FE: 200 OK\n(data, page, total, totalPages)
+FE -> FE: Render table\n(TanStack Query + TanStack Table)
+
+@enduml
