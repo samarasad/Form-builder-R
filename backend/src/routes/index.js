@@ -1,8 +1,8 @@
-import express from 'express';
+import express from "express";
+import formRoutes from "./formSchema.js";
+
 const router = express.Router();
-import formSchemaRouter from './formSchema.js';
 
+router.use("/form", formRoutes);
 
-//notes routes
-router.use('/form', formSchemaRouter);
 export default router;
