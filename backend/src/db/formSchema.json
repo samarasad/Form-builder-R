@@ -1,1 +1,61 @@
-{}
+{
+  "title": "Employee Onboarding Form",
+  "description": "Please fill all required fields.",
+  "fields": [
+    {
+      "name": "fullName",
+      "label": "Full Name",
+      "type": "text",
+      "placeholder": "Enter full name",
+      "required": true,
+      "validations": { "minLength": 3, "maxLength": 50 }
+    },
+    {
+      "name": "age",
+      "label": "Age",
+      "type": "number",
+      "placeholder": "Enter age",
+      "required": true,
+      "validations": { "min": 18, "max": 60 }
+    },
+    {
+      "name": "department",
+      "label": "Department",
+      "type": "select",
+      "placeholder": "Choose department",
+      "required": true,
+      "options": ["Engineering", "HR", "Finance"],
+      "validations": {}
+    },
+    {
+      "name": "skills",
+      "label": "Skills",
+      "type": "multi-select",
+      "options": ["React", "Node.js", "Python", "DevOps"],
+      "required": false,
+      "validations": { "minSelected": 1, "maxSelected": 3 }
+    },
+    {
+      "name": "joiningDate",
+      "label": "Joining Date",
+      "type": "date",
+      "required": true,
+      "validations": { "minDate": "2024-01-01" }
+    },
+    {
+      "name": "bio",
+      "label": "Bio",
+      "type": "textarea",
+      "placeholder": "Short introduction",
+      "required": false,
+      "validations": { "minLength": 10, "maxLength": 200 }
+    },
+    {
+      "name": "isActive",
+      "label": "Active Employee",
+      "type": "switch",
+      "required": false,
+      "validations": {}
+    }
+  ]
+}
