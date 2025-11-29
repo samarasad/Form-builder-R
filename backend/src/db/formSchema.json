@@ -1,6 +1,6 @@
 {
   "title": "Employee Onboarding Form",
-  "description": "Please fill all required fields.",
+  "description": "Please fill out the following details accurately.",
   "fields": [
     {
       "name": "fullName",
@@ -8,7 +8,20 @@
       "type": "text",
       "placeholder": "Enter full name",
       "required": true,
-      "validations": { "minLength": 3, "maxLength": 50 }
+      "validations": {
+        "minLength": 3,
+        "maxLength": 50
+      }
+    },
+    {
+      "name": "email",
+      "label": "Email Address",
+      "type": "text",
+      "placeholder": "example@company.com",
+      "required": true,
+      "validations": {
+        "regex": "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$"
+      }
     },
     {
       "name": "age",
@@ -16,7 +29,10 @@
       "type": "number",
       "placeholder": "Enter age",
       "required": true,
-      "validations": { "min": 18, "max": 60 }
+      "validations": {
+        "min": 18,
+        "max": 60
+      }
     },
     {
       "name": "department",
@@ -24,38 +40,56 @@
       "type": "select",
       "placeholder": "Choose department",
       "required": true,
-      "options": ["Engineering", "HR", "Finance"],
-      "validations": {}
+      "options": [
+        "Engineering",
+        "Human Resources",
+        "Marketing",
+        "Finance",
+        "Sales"
+      ]
     },
     {
       "name": "skills",
       "label": "Skills",
       "type": "multi-select",
-      "options": ["React", "Node.js", "Python", "DevOps"],
-      "required": false,
-      "validations": { "minSelected": 1, "maxSelected": 3 }
+      "placeholder": "Select skills",
+      "required": true,
+      "options": [
+        "JavaScript",
+        "Python",
+        "UI/UX",
+        "Project Management",
+        "Communication"
+      ],
+      "validations": {
+        "minSelected": 1,
+        "maxSelected": 5
+      }
     },
     {
       "name": "joiningDate",
       "label": "Joining Date",
       "type": "date",
       "required": true,
-      "validations": { "minDate": "2024-01-01" }
+      "validations": {
+        "minDate": "2024-01-01"
+      }
     },
     {
-      "name": "bio",
-      "label": "Bio",
+      "name": "address",
+      "label": "Address",
       "type": "textarea",
-      "placeholder": "Short introduction",
+      "placeholder": "Enter full address",
       "required": false,
-      "validations": { "minLength": 10, "maxLength": 200 }
+      "validations": {
+        "maxLength": 200
+      }
     },
     {
-      "name": "isActive",
-      "label": "Active Employee",
+      "name": "relocationRequired",
+      "label": "Relocation Required",
       "type": "switch",
-      "required": false,
-      "validations": {}
+      "required": true
     }
   ]
 }

@@ -1,15 +1,8 @@
-import { createRequire } from "module";
-const require = createRequire(import.meta.url);
+import { loadJSON } from "../utils/loadJSON.js";
+
+const formSchema = loadJSON();
 export const getFormSchemaService = () => {
-  let formSchema = {};
-  try {
-    formSchema = require("../db/formSchema.json"); // load JSON safely
-  } catch (err) {
-    console.error("Failed to load JSON:", err.message);
-    const error = new Error("Form schema file could not be loaded.");
-    error.statusCode = 500;
-    throw error;
-  }
+  
   if (!formSchema) {
     const err = new Error("Form schema file could not be loaded.");
     err.statusCode = 500;

@@ -9,6 +9,6 @@ export const connectDB = async () => {
     console.log('mongoDB Connected');
   } catch (err) {
     console.error("mongoDB connection error:", err.message);
-    process.exit(1); // stop the server if DB fails in production
+    process.exit(1); 
   }
 };

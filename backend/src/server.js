@@ -15,6 +15,7 @@ connectDB();
 // Routes
 app.use("/api/form-schema", routes);
 app.use('/api/form-submissions',routes);
+app.use('/api/get-submissions',routes);
 // app.use("/api/submissions", submissionRoutes);
 
 // Error handler
