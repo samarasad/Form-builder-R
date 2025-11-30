@@ -84,12 +84,6 @@
       "validations": {
         "maxLength": 200
       }
-    },
-    {
-      "name": "relocationRequired",
-      "label": "Relocation Required",
-      "type": "switch",
-      "required": true
     }
   ]
 }

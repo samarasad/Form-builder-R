@@ -1,0 +1,19 @@
+@layer theme {
+  :root {
+    --bg: #0D1117;
+    --bg-card: #1A1F25;
+    --bg-subtle: #161B22;
+
+    --text: #E6EDF3;
+    --text-muted: #8B949E;
+
+    --primary: #1C75FF;
+    --primary-hover: #1662D4;
+
+    --error: #DC3545;
+
+    --border-subtle: #30363D;
+
+    --radius-lg: 12px;
+  }
+}

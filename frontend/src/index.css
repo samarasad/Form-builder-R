@@ -1,0 +1,10 @@
+@import "tailwindcss";
+@import "./theme/tokens.css";
+
+@layer base {
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, sans-serif;
+  }
+}
